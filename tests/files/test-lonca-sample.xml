@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Products>
+  <Product ProductId="test-123" Name="Test Nakışlı Elbise">
+    <Images>
+      <Image Path="www.example.com/test-123-turuncu-1.jpeg"></Image>
+      <Image Path="www.example.com/test-123-turuncu-2.jpeg"></Image>
+      <Image Path="www.example.com/test-123-turuncu-3.jpeg"></Image>
+    </Images>
+    <ProductDetails>
+      <ProductDetail Name="Price" Value="10,00"/>
+      <ProductDetail Name="DiscountedPrice" Value="8,00"/>
+      <ProductDetail Name="ProductType" Value="Elbise"/>
+      <ProductDetail Name="Quantity" Value="5"/>
+      <ProductDetail Name="Color" Value="Turuncu"/>
+      <ProductDetail Name="Series" Value="1S-1M-2L-1XL"/>
+      <ProductDetail Name="Season" Value="2023 Kış"/>
+    </ProductDetails>
+    <Description>
+      <![CDATA[<ul>
+        <li><strong>Ürün Bilgisi:</strong> Test description of the product.</li>
+        <li><strong>Kumaş Bilgisi:</strong> %90 Polyester %10 Likra</li>
+        <li><strong>Ürün Ölçüleri:</strong> Boy: 42 cm Kol: 62 cm</li>
+        <li><strong>Model Ölçüleri:</strong> Boy: 1.72, Göğüs: 86, Bel: 64, Kalça: 90</li>
+        <li>Modelin üzerindeki ürün <strong>S/36</strong> bedendir.</li>
+      </ul>]]>
+    </Description>
+  </Product>
+  <!-- Add more <Product> elements as needed for your tests -->
+</Products>

@@ -38,7 +38,10 @@ def test_product_initialization(mocked_datetime_now, product):
     assert product.price == 16.20
     assert product.color == ["Bej"]
     assert product.discounted_price == 16.20
-    assert product.images == ["www.aday-butik-resim-sitesi/27356-sarı.jpeg", "www.aday-butik-resim-sitesi/356-sarı.jpeg"]
+    assert product.images == [
+        "www.aday-butik-resim-sitesi/27356-sarı.jpeg",
+        "www.aday-butik-resim-sitesi/356-sarı.jpeg"
+        ]
     assert product.is_discounted is False
     assert product.price_unit == "USD"
     assert product.product_type == "Elbise"

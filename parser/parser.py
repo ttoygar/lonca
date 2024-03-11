@@ -82,3 +82,17 @@ class DescriptionParser(HTMLParser):
         elif "Modelin üzerindeki ürün" in self.current_data:
             size_info = self.current_data.split("bedendir.")[0].strip()
             self.sample_size = size_info.split()[-1]
+
+
+def parse_multiple_products(file_path):
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+    products_data = []
+
+    for product_element in root.findall('./Product'):
+        product_xml = ET.tostring(product_element, encoding='unicode')
+        parser = ProductParser(product_xml)
+        product_data = parser.parse()
+        products_data.append(product_data)
+
+    return products_data
