@@ -1,8 +1,6 @@
-# test_main.py
 import pytest
-from unittest.mock import MagicMock, patch
-from app.main import MongoDBClient, process_products
-from parser.parser import ProductParser
+from unittest.mock import patch
+from app.main import process_products
 
 
 @pytest.fixture

@@ -28,3 +28,25 @@ class Product:
 
     def _update_timestamp(self):
         self.updated_at = datetime.now()
+
+    def to_dict(self):
+        return {
+            "stock_code": self.stock_code,
+            "name": self.name,
+            "images": self.images,
+            "price": self.price,
+            "color": self.color,
+            "discounted_price": self.discounted_price,
+            "is_discounted": self.is_discounted,
+            "price_unit": self.price_unit,
+            "product_type": self.product_type,
+            "quantity": self.quantity,
+            "sample_size": self.sample_size,
+            "series": self.series,
+            "status": self.status,
+            "fabric": self.fabric,
+            "model_measurements": self.model_measurements,
+            "product_measurements": self.product_measurements,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }

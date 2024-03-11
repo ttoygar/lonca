@@ -27,7 +27,9 @@ class ProductParser:
         product['price'] = float(self.root.find('.//ProductDetail[@Name="Price"]').attrib['Value'].replace(',', '.'))
         product['images'] = [img.attrib['Path'] for img in self.root.findall('./Images/Image')]
         product['color'] = None or [self.root.find('.//ProductDetail[@Name="Color"]').attrib['Value']]
-        product['discounted_price'] = float(self.root.find('.//ProductDetail[@Name="DiscountedPrice"]').attrib['Value'].replace(',', '.'))
+        product['discounted_price'] = float(
+            self.root.find('.//ProductDetail[@Name="DiscountedPrice"]').attrib['Value'].replace(',', '.')
+            )
         product['is_discounted'] = product["price"] > product["discounted_price"]
         product['price_unit'] = "USD"
         product['product_type'] = self.root.find('.//ProductDetail[@Name="ProductType"]').attrib['Value']

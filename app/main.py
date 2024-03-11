@@ -9,7 +9,9 @@ def parse_xml(file_path):
 
 def process_products(file_path):
     products = parse_xml(file_path)
-    db_client = MongoDBClient()
+    db_name = "lonca"
+    collection_name = "loncaCollection"
+    db_client = MongoDBClient(database_name=db_name, collection_name=collection_name)
     for prod in products:
         product = Product(**prod)
         db_client.insert_product(product)
