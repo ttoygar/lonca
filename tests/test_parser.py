@@ -1,5 +1,5 @@
 import pytest
-from src.parser import ProductParser
+from parser.parser import ProductParser
 
 
 @pytest.fixture

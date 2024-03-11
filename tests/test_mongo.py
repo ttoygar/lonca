@@ -4,7 +4,7 @@ import pytest
 
 @pytest.fixture(scope="module")
 def mongo_client():
-    with patch('src.mongo_client.MongoDBClient') as MockMongoDBClient:
+    with patch('app.mongo_client.MongoDBClient') as MockMongoDBClient:
         mock_client_instance = MockMongoDBClient.return_value
         mock_client_instance.find_product = MagicMock(return_value={'name': 'Test Product'})
         mock_client_instance.collection.find.return_value = MagicMock(count=MagicMock(return_value=1))
