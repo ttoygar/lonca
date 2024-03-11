@@ -1,5 +1,16 @@
 import pytest
 from parser.parser import ProductParser
+import xml.etree.ElementTree as ET
+
+
+def read_xml_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
+
+
+@pytest.fixture
+def multiple_products_xml():
+    return read_xml_file('files/lonca-sample.xml')
 
 
 @pytest.fixture
@@ -43,3 +54,15 @@ def test_parse_product_starts_with_exotic_character(product_xml):
     product = product_parser.parse()
 
     assert product['name'] == "İ harfli elbise"
+
+
+def test_parse_multiple_products(multiple_products_xml):
+    root = ET.fromstring(multiple_products_xml)
+    products = [ProductParser(ET.tostring(product).decode()) for product in root.findall('./Product')]
+
+    assert len(products) > 0
+    for product in products:
+        parsed_data = product.parse()
+        assert 'stock_code' in parsed_data
+        assert 'name' in parsed_data
+        assert 'price' in parsed_data
